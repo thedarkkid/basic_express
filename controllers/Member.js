@@ -1,4 +1,4 @@
-User = require("../model/User");
+User = require("../models/User");
 uuid = require("uuid");
 
 class Member{

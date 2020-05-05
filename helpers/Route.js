@@ -1,23 +1,9 @@
-var express = require('express');
+let express = require('express');
+let app = express();
 
-class Route{
-    group(arg1, arg2) {
-        var fn, path;
-
-        if (arg2 === undefined) {
-            path = "/";
-            fn = arg1;
-        }
-        else {
-            path = arg1;
-            fn = arg2
-        }
-
-        var router = express.Router();
-        fn(router);
-        express().use(path, router);
-        return router;
-    }
-}
-
-module.exports = new Route();
+express.application.group = express.Router.group =  function(path, configure){
+    let router = express.Router();
+    this.use(path, router);
+    configure(router);
+    return router;
+};

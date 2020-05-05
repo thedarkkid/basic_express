@@ -1,9 +1,7 @@
-require("express-group-routes");
 const express = require("express");
 const path = require("path");
 const app = express();
 const handlebars = require("express-handlebars");
-const logger = require("./middleware/logger");
 const forceJsonResponse = require("./middleware/forceJsonResponse");
 
 //register middlewares
